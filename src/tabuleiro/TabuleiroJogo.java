@@ -33,4 +33,11 @@ public class TabuleiroJogo {
 		this.colunas = colunas;
 	}
 
+	public Peca peca(int linha, int coluna) {
+		return pecas[linha][coluna];
+	}
+	
+	public Peca peca(Posicao posicao) {
+		return pecas[posicao.getLinha()][posicao.getColuna()];
+	}
 }
