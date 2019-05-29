@@ -46,7 +46,7 @@ public class UI {
 			return new PosicaoXadrez(coluna, linha);
 		}
 		catch(RuntimeException e) {
-			throw new InputMismatchException("Erro ao ler posição! Valores valido de a1 a h8");
+			throw new InputMismatchException("Erro ao ler posicao! Valores valido de a1 a h8");
 			
 		}
 	}
@@ -57,9 +57,15 @@ public class UI {
 		printPecasCapturadas(capturada);
 		System.out.println();
 		System.out.println("Vez :" + partidaXadrez.getVez());
-		System.out.println("Esperando Jogador: " + partidaXadrez.getJogadorAtual());
-		if (partidaXadrez.getCheck()) {
-			System.out.println("Voce esta em CHECK!");	
+		if(!partidaXadrez.getCheckMate()) {
+			System.out.println("Esperando Jogador: " + partidaXadrez.getJogadorAtual());
+			if (partidaXadrez.getCheck()) {
+				System.out.println("Voce esta em CHECK!");	
+			}
+		}
+		else {
+			System.out.println("CHECKMATE!");
+			System.out.println("Vencedor: " + partidaXadrez.getJogadorAtual());
 		}
 	}
 
